@@ -1,0 +1,87 @@
+{
+  "frames": {
+    "coins_animation_1.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 11
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 2,
+        "w": 122,
+        "h": 11
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 15
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "coins_animation_2.png": {
+      "frame": {
+        "x": 122,
+        "y": 0,
+        "w": 122,
+        "h": 11
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 2,
+        "w": 122,
+        "h": 11
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 15
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "coins_animation_3.png": {
+      "frame": {
+        "x": 244,
+        "y": 0,
+        "w": 122,
+        "h": 11
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 2,
+        "w": 122,
+        "h": 11
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "Coins.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 366,
+      "h": 11
+    },
+    "scale": 1
+  }
+}
