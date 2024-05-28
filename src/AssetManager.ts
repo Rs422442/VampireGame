@@ -33,11 +33,11 @@ export default class AssetManager{
                 })
           })
       );
-      const Element = document.querySelector('.preloader')
+      const Element = document.getElementById('preloader')
       
       await Promise.all(this.promises)
-        .then((_result) => Element?.classList.toggle('.preloader--hide'))
-        .catch((_err) => console.warn('error loading resources')); 
+        .then((_result) => {Element?.classList.add('preloader--hide'); console.warn('preloader hide')})
+        .catch((_err) => console.warn('error loading resources'))
     }
 
   private getTextureFromResources(resources: UTILS.Dict<PIXI.ImageResource>, key: string, frame?: string): PIXI.Texture

@@ -98,13 +98,10 @@ button:focus-visible {
   background-color: white;
   z-index: 1000;
   transition: all .09s ease-out;
-  transform: translateY(-100%);
 }
 
 .preloader--hide {
-  opacity: 0;
-  transform: translateY(0);
-  visibility: hidden;
+  display: none;
   z-index: -1;
 }
 

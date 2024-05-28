@@ -15,8 +15,9 @@ export default class Game{
 
 
     constructor(_pixiApp:PIXI.Application){
-        this.pixiApp = _pixiApp;  
-        this.GameLoading.preload
+        this.pixiApp = _pixiApp;
+        this.GameLoading.preload 
+        
         ([
             ["Coins","./assets/Coins.json"],
             ["Entityaylas","./assets/Enemy.json"],
