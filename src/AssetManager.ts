@@ -21,8 +21,8 @@ export default class AssetManager{
           {
             atlas.forEach(function(value)
             {
-              AssetManager.assetsloader.add(value);
-              console.warn('sprites loaded'+ value);
+              AssetManager.assetsloader.add(value[0],value[1]);
+              console.warn('sprites loaded '+ value[0] + ' ' + value[1]);
             }); 
             AssetManager.assetsloader.load((_assetsloader, resources) =>          
                 {
@@ -45,11 +45,11 @@ export default class AssetManager{
       console.warn(AssetManager.resources)
       if (frame) 
         {
-          if (!(resources[key] as any).textures[frame])
+          if (!(resources[key] as any).data.frames[frame])
             {
               console.error(`[getTexture]: В ${key} нет ${frame}`);
             }
-          return (resources[key] as any).textures[frame];
+          return (resources[key] as any).data.frames[frame];
         }
 
       if (!key)
@@ -58,7 +58,7 @@ export default class AssetManager{
           return PIXI.Texture.EMPTY;
         }
 
-      if (!(resources[key] as any).texture)
+      if (!(resources[key] as any).data)
         {
           console.error(`[getTexture]: Нет ${key}`);
         }
