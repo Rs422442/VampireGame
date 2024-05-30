@@ -5,9 +5,8 @@ import * as PIXI from 'pixi.js';
 type atlassheet = [name: string, path: string]; 
 
 export default class AssetManager{
-    static resources: any;
+    static _resources: any;
     static assetsloader: Loader = new Loader();
-    loadflag: boolean = false;
     promises: Promise<void>[] = [];
 
 
@@ -21,14 +20,14 @@ export default class AssetManager{
           {
             atlas.forEach(function(value)
             {
-              AssetManager.assetsloader.add(value[0],value[1]);
+              AssetManager.assetsloader.add(value[0], value[1]);
               console.warn('sprites loaded '+ value[0] + ' ' + value[1]);
             }); 
-            AssetManager.assetsloader.load((_assetsloader, resources) =>          
+            AssetManager.assetsloader.load((_assetsloader, _resources) =>          
                 {
-                  AssetManager.resources = resources;
+                  AssetManager._resources = _resources;
                   console.warn('all sprites loaded');
-                  console.warn(AssetManager.resources)
+                  console.warn(_resources)
                   resolve();
                 })
           })
@@ -42,14 +41,13 @@ export default class AssetManager{
 
   private getTextureFromResources(resources: UTILS.Dict<PIXI.ImageResource>, key: string, frame?: string): PIXI.Texture
     {
-      console.warn(AssetManager.resources)
       if (frame) 
         {
           if (!(resources[key] as any).data.frames[frame])
             {
               console.error(`[getTexture]: В ${key} нет ${frame}`);
             }
-          return (resources[key] as any).data.frames[frame];
+          return (resources[key] as any).data.frames[frame].texture;
         }
 
       if (!key)
@@ -58,7 +56,7 @@ export default class AssetManager{
           return PIXI.Texture.EMPTY;
         }
 
-      if (!(resources[key] as any).data)
+      if (!(resources[key] as any))
         {
           console.error(`[getTexture]: Нет ${key}`);
         }
@@ -68,12 +66,11 @@ export default class AssetManager{
 
    getTexture(key: string, frame?: string): PIXI.Texture
     {
-      return this.getTextureFromResources(AssetManager.resources, key, frame);
+      return this.getTextureFromResources(AssetManager._resources, key, frame);
     }
 
     /*onLoadCallback(){
       const Element = document.querySelector('.preloader')
       Element?.classList.toggle('.preloader--hide')
-      this.loadflag = true;
     };*/
 }
