@@ -5,7 +5,7 @@ import * as PIXI from 'pixi.js';
 type atlassheet = [name: string, path: string]; 
 
 export default class AssetManager{
-    static _resources: any;
+    static resources: any;
     static assetsloader: Loader = new Loader();
     promises: Promise<void>[] = [];
 
@@ -19,15 +19,15 @@ export default class AssetManager{
         new Promise<void>((resolve, _reject) =>
           {
             atlas.forEach(function(value)
-            {
+            {              
               AssetManager.assetsloader.add(value[0], value[1]);
               console.warn('sprites loaded '+ value[0] + ' ' + value[1]);
             }); 
             AssetManager.assetsloader.load((_assetsloader, _resources) =>          
                 {
-                  AssetManager._resources = _resources;
+                  AssetManager.resources = _resources;
                   console.warn('all sprites loaded');
-                  console.warn(_resources)
+                  console.warn(AssetManager.resources)
                   resolve();
                 })
           })
@@ -43,11 +43,11 @@ export default class AssetManager{
     {
       if (frame) 
         {
-          if (!(resources[key] as any).data.frames[frame])
+          if (!(AssetManager.resources[key] as any).data.frames[frame])
             {
               console.error(`[getTexture]: В ${key} нет ${frame}`);
             }
-          return (resources[key] as any).data.frames[frame].texture;
+          return (AssetManager.resources[key] as any).data.frames[frame].texture;
         }
 
       if (!key)
@@ -56,17 +56,17 @@ export default class AssetManager{
           return PIXI.Texture.EMPTY;
         }
 
-      if (!(resources[key] as any))
+      if (!(AssetManager.resources[key] as any))
         {
           console.error(`[getTexture]: Нет ${key}`);
         }
 
-      return (resources[key] as any).texture;
+      return (AssetManager.resources[key] as any).texture;
     }
 
    getTexture(key: string, frame?: string): PIXI.Texture
     {
-      return this.getTextureFromResources(AssetManager._resources, key, frame);
+      return this.getTextureFromResources(AssetManager.resources, key, frame);
     }
 
     /*onLoadCallback(){
