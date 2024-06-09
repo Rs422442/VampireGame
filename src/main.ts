@@ -1,11 +1,11 @@
 import Game from './Game';
 import * as PIXI from 'pixi.js';
 
-//document.addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () =>{
 
   const _pixiapp = new PIXI.Application();
 
-  //(async () => {
+  (async () => {
       await _pixiapp.init({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -16,5 +16,5 @@ import * as PIXI from 'pixi.js';
 
       new Game(_pixiapp);
       
-  //})();
-//})
+  })();
+});

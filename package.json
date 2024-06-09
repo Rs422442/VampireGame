@@ -16,6 +16,6 @@
     "@pixi/loaders": "^6.5.10",
     "@pixi/utils": "^6.5.10",
     "https": "^1.0.0",
-    "pixi.js": "^6.5.10"
+    "pixi.js": "^8.1.6"
   }
 }
