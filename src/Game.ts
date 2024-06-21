@@ -23,11 +23,12 @@ export default class Game{
             ["Entityaylas","./assets/Enemy.json"],
             ["HealthBar","./assets/HealthBar.json"],
             ["terrain","./assets/terrain.json"],
-            ["atlas","./assets/atlas.json"]
+            ["atlas","./assets/atlas.json"],
+            ["GG_IDLE","./assets/GG_IDLE.json"]
         ])
 
         this.GameLoading.promises[0].then(()=>{
-            let sprite = PIXI.Sprite.from(this.GameLoading.getTexture("atlas", "block1"));
+            let sprite = PIXI.Sprite.from(this.GameLoading.getTexture("GG_IDLE", "sabrisv3-1 1.png"));
             this.pixiApp.stage.addChild(sprite);
         })
 
