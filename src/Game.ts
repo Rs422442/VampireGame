@@ -16,11 +16,9 @@ export default class Game{
 
     constructor(_pixiApp:PIXI.Application){
         this.pixiApp = _pixiApp;
-        this.GameLoading.preload 
-        
-        ([
+        this.GameLoading.preload ([
             ["Coins","./assets/Coins.json"],
-            ["Entityaylas","./assets/Enemy.json"],
+            ["Entityatlas","./assets/Entityatlas.json"],
             ["HealthBar","./assets/HealthBar.json"],
             ["terrain","./assets/terrain.json"],
             ["atlas","./assets/atlas.json"],
@@ -31,6 +29,8 @@ export default class Game{
             let sprite = PIXI.Sprite.from(this.GameLoading.getTexture("GG_IDLE", "sabrisv3-1 1.png"));
             this.pixiApp.stage.addChild(sprite);
         })
+
+        
 
              
 

@@ -25,6 +25,7 @@ export default class AssetManager{
             }); 
             AssetManager.assetsloader.load((_assetsloader, _resources) =>          
                 {
+                  
                   AssetManager.resources = _resources;
                   console.warn('all sprites loaded');
                   console.warn(AssetManager.resources)
@@ -43,11 +44,11 @@ export default class AssetManager{
     {
       if (frame) 
         {
-          if (!(AssetManager.resources[key] as any).data.frames[frame])
+          if (!(resources[key] as any).data.frames[frame].frame)
             {
               console.error(`[getTexture]: В ${key} нет ${frame}`);
             }
-          return (AssetManager.resources[key] as any).data.frames[frame].texture;
+          return (resources[key] as any).data.frames[frame].frame.texture;
         }
 
       if (!key)
@@ -56,12 +57,12 @@ export default class AssetManager{
           return PIXI.Texture.EMPTY;
         }
 
-      if (!(AssetManager.resources[key] as any))
+      if (!(resources[key] as any))
         {
           console.error(`[getTexture]: Нет ${key}`);
         }
 
-      return (AssetManager.resources[key] as any).texture;
+      return (resources[key] as any).texture;
     }
 
    getTexture(key: string, frame?: string): PIXI.Texture
